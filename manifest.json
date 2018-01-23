@@ -1,0 +1,12 @@
+{
+  "services": {
+    "PasswordLogin": {
+      "client": "PasswordLogin",
+      "namespace": "Dorcas\\Services\\Identity"
+    },
+    "Registration": {
+      "client": "Registration",
+      "namespace": "Dorcas\\Services\\Identity"
+    }
+  }
+}
