@@ -18,6 +18,6 @@ try {
                                 ->send('get');
     echo $response->getRawResponse();
 
-} catch (\Dorcas\Exception\DorcasException $e) {
+} catch (Hostville\Dorcas\Exception\DorcasException $e) {
     dd($e->getMessage(), $e->context);
 }

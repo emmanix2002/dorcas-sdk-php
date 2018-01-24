@@ -14,6 +14,6 @@ try {
                                     ->addBodyParam('company', 'Book Readers Club')
                                     ->send('post');
     dd($response->getRawResponse());
-} catch (\Dorcas\Exception\DorcasException $e) {
+} catch (Hostville\Dorcas\Exception\DorcasException $e) {
     dd($e->getMessage(), $e->context);
 }
