@@ -129,9 +129,6 @@ trait SendsHttpRequestTrait
             # we don't validate GEt requests
             $this->validate();
         }
-        if ($this->requiresAuthorization()) {
-            $headers['Authorization'] = $this->getAuthorizationHeader();
-        }
         $uri = static::getRequestUrl($path);
         $url = $uri->getScheme() . '://' . $uri->getAuthority() . $uri->getPath();
         # set the URL
