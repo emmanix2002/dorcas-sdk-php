@@ -1,0 +1,32 @@
+{
+  "name": "hostville/dorcas-sdk-php",
+  "homepage": "https://dorcas.com",
+  "description": "Dorcas SDK for PHP - Allows you to use the Dorcas API services in your web apps",
+  "keywords": ["dorcas","business","sdk","invoicing"],
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Emmanuel Okeke",
+      "homepage": "https://github.com/emmanix2002"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "ext-json": "*",
+    "guzzlehttp/guzzle": "^6.3",
+    "illuminate/support": "^5.5",
+    "moneyphp/money": "^3.1"
+  },
+  "require-dev": {
+
+  },
+  "autoload": {
+    "psr-4": {
+      "Hostville\\Dorcas\\": "src/"
+    },
+    "files": [
+      "src/helpers.php"
+    ]
+  }
+}
