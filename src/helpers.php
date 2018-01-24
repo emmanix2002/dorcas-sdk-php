@@ -45,7 +45,7 @@ function http_client(\GuzzleHttp\Psr7\Uri $uri = null): \GuzzleHttp\Client
         \GuzzleHttp\RequestOptions::CONNECT_TIMEOUT => 30.0,
         \GuzzleHttp\RequestOptions::TIMEOUT => 30.0,
         \GuzzleHttp\RequestOptions::HEADERS => [
-            'User-Agent' => 'dorcas-sdk-php/'.\Dorcas\Sdk::VERSION
+            'User-Agent' => 'dorcas-sdk-php/'.Hostville\Dorcas\Sdk::VERSION
         ]
     ];
     if (!empty($baseUrl)) {
@@ -90,14 +90,14 @@ function parse_query_parameters(string $queryString): array
  * NOTE: The client_id, and client_secret must correspond to a Password Grant Client issued to you.
  *
  *
- * @param \Dorcas\Sdk $sdk
+ * @param Hostville\Dorcas\Sdk $sdk
  * @param string      $username
  * @param string      $password
  *
- * @return \Dorcas\DorcasResponse|string
- * @throws \Dorcas\Exception\DorcasException
+ * @return Hostville\Dorcas\DorcasResponse|string
+ * @throws Hostville\Dorcas\Exception\DorcasException
  */
-function login_via_password(\Dorcas\Sdk $sdk, string $username, string $password)
+function login_via_password(Hostville\Dorcas\Sdk $sdk, string $username, string $password)
 {
     $service = $sdk->createPasswordLoginService();
     $response = $service->addBodyParam('username', $username)

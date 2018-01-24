@@ -1,6 +1,6 @@
 <?php
 
-namespace Dorcas\Exception;
+namespace Hostville\Dorcas\Exception;
 
 
 class ResourceNotFoundException extends DorcasException

@@ -1,9 +1,9 @@
 <?php
 
-namespace Dorcas\Services\Identity;
+namespace Hostville\Dorcas\Services\Identity;
 
 
-use Dorcas\Services\AbstractService;
+use Hostville\Dorcas\Services\AbstractService;
 
 class Registration extends AbstractService
 {

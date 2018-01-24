@@ -1,9 +1,9 @@
 <?php
 
-namespace Dorcas;
+namespace Hostville\Dorcas;
 
 
-use Dorcas\Exception\DorcasException;
+use Hostville\Dorcas\Exception\DorcasException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\Exception\ConnectException;

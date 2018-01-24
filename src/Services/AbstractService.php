@@ -1,12 +1,12 @@
 <?php
 
-namespace Dorcas\Services;
+namespace Hostville\Dorcas\Services;
 
 
-use Dorcas\Exception\DorcasException;
-use Dorcas\RequestInterface;
-use Dorcas\Sdk;
-use Dorcas\SendsHttpRequestTrait;
+use Hostville\Dorcas\Exception\DorcasException;
+use Hostville\Dorcas\RequestInterface;
+use Hostville\Dorcas\Sdk;
+use Hostville\Dorcas\SendsHttpRequestTrait;
 use GuzzleHttp\Psr7\Uri;
 
 abstract class AbstractService implements ServiceInterface

@@ -1,9 +1,9 @@
 <?php
 
-namespace Dorcas\Services;
+namespace Hostville\Dorcas\Services;
 
 
-use Dorcas\RequestInterface;
+use Hostville\Dorcas\RequestInterface;
 
 interface ServiceInterface extends RequestInterface
 {

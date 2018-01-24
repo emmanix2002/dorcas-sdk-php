@@ -2,56 +2,56 @@
   "resources": {
     "Company": {
       "client": "Company",
-      "namespace": "Dorcas\\Resources",
+      "namespace": "Hostville\\Dorcas\\Resources",
       "path": "companies",
       "includes": ["customers", "departments", "employees", "locations", "orders", "services", "teams"],
       "headers": ["Authorization"]
     },
     "ContactField": {
       "client": "ContactField",
-      "namespace": "Dorcas\\Resources\\Crm",
+      "namespace": "Hostville\\Dorcas\\Resources\\Crm",
       "path": "contact-fields",
       "includes": ["customers"],
       "headers": ["Authorization"]
     },
     "Country": {
       "client": "Country",
-      "namespace": "Dorcas\\Resources",
+      "namespace": "Hostville\\Dorcas\\Resources",
       "path": "countries",
       "includes": ["states"],
       "headers": ["Authorization"]
     },
     "Customer": {
       "client": "Customer",
-      "namespace": "Dorcas\\Resources\\Crm",
+      "namespace": "Hostville\\Dorcas\\Resources\\Crm",
       "path": "customers",
       "includes": ["company", "contacts", "orders"],
       "headers": ["Authorization"]
     },
     "Department": {
       "client": "Department",
-      "namespace": "Dorcas\\Resources\\Crm",
+      "namespace": "Hostville\\Dorcas\\Resources\\Crm",
       "path": "customers",
       "includes": ["company", "employees"],
       "headers": ["Authorization"]
     },
     "Employee": {
       "client": "Employee",
-      "namespace": "Dorcas\\Resources\\Crm",
+      "namespace": "Hostville\\Dorcas\\Resources\\Crm",
       "path": "employees",
       "includes": ["company", "department", "location", "teams"],
       "headers": ["Authorization"]
     },
     "Order": {
       "client": "Order",
-      "namespace": "Dorcas\\Resources\\Invoicing",
+      "namespace": "Hostville\\Dorcas\\Resources\\Invoicing",
       "path": "orders",
       "includes": ["company", "customers", "products"],
       "headers": ["Authorization"]
     },
     "Product": {
       "client": "Product",
-      "namespace": "Dorcas\\Resources\\Invoicing",
+      "namespace": "Hostville\\Dorcas\\Resources\\Invoicing",
       "path": "products",
       "includes": ["company", "orders", "prices"],
       "headers": ["Authorization"]
@@ -60,7 +60,7 @@
   "services": {
     "PasswordLogin": {
       "client": "PasswordLogin",
-      "namespace": "Dorcas\\Services\\Identity",
+      "namespace": "Hostville\\Dorcas\\Services\\Identity",
       "path": "oauth/token",
       "parameters": {
         "required": ["client_id", "client_secret", "grant_type", "username", "password", "scope"],
@@ -69,7 +69,7 @@
     },
     "Registration": {
       "client": "Registration",
-      "namespace": "Dorcas\\Services\\Identity",
+      "namespace": "Hostville\\Dorcas\\Services\\Identity",
       "path": "register",
       "parameters": {
         "required": ["client_id", "client_secret", "email", "password", "firstname", "lastname", "phone", "company"],

@@ -1,11 +1,11 @@
 <?php
 
-namespace Dorcas\Resources;
+namespace Hostville\Dorcas\Resources;
 
 
-use Dorcas\RequestInterface;
-use Dorcas\Sdk;
-use Dorcas\SendsHttpRequestTrait;
+use Hostville\Dorcas\RequestInterface;
+use Hostville\Dorcas\Sdk;
+use Hostville\Dorcas\SendsHttpRequestTrait;
 use GuzzleHttp\Psr7\Uri;
 use Illuminate\Support\Arr;
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace Dorcas\Resources\Crm;
+namespace Hostville\Dorcas\Resources\Crm;
 
 
-use Dorcas\Resources\AbstractResource;
+use Hostville\Dorcas\Resources\AbstractResource;
 
 class Customer extends AbstractResource
 {

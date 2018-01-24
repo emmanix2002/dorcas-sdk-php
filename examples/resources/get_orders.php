@@ -2,7 +2,7 @@
 session_start();
 require_once(dirname(__DIR__, 2).'/vendor/autoload.php');
 
-$sdk = new \Dorcas\Sdk(['credentials' => ['id' => 2, 'secret' => 'hFWx5xkPbVKXvLwD17Lbl5MFczORgKZwvawKOzpc']]);
+$sdk = new Hostville\Dorcas\Sdk(['credentials' => ['id' => 2, 'secret' => 'hFWx5xkPbVKXvLwD17Lbl5MFczORgKZwvawKOzpc']]);
 if (empty($_SESSION['token'])) {
     $token = login_via_password($sdk, 'user@example.org', 'administrator');
     $_SESSION['token'] = $token;

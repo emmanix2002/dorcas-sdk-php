@@ -2,7 +2,7 @@
 session_start();
 require_once(dirname(__DIR__).'/vendor/autoload.php');
 
-$sdk = new \Dorcas\Sdk(['credentials' => ['id' => 2, 'secret' => 'hFWx5xkPbVKXvLwD17Lbl5MFczORgKZwvawKOzpc']]);
+$sdk = new Hostville\Dorcas\Sdk(['credentials' => ['id' => 2, 'secret' => 'hFWx5xkPbVKXvLwD17Lbl5MFczORgKZwvawKOzpc']]);
 try {
     if (empty($_SESSION['token'])) {
         $response = login_via_password($sdk, 'fake-admin@yemisi.com', 'randomPass');
@@ -13,7 +13,7 @@ try {
         }
     }
     dd($_SESSION['token']);
-} catch (\Dorcas\Exception\DorcasException $e) {
+} catch (Hostville\Dorcas\Exception\DorcasException $e) {
     dd($e->getMessage(), $e->context);
 } catch (Exception $e) {
     dd($e->getMessage());

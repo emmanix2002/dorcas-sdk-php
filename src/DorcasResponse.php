@@ -1,6 +1,6 @@
 <?php
 
-namespace Dorcas;
+namespace Hostville\Dorcas;
 
 
 use Psr\Http\Message\RequestInterface;

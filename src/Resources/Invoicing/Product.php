@@ -1,9 +1,9 @@
 <?php
 
-namespace Dorcas\Resources\Invoicing;
+namespace Hostville\Dorcas\Resources\Invoicing;
 
 
-use Dorcas\Resources\AbstractResource;
+use Hostville\Dorcas\Resources\AbstractResource;
 
 class Product extends AbstractResource
 {

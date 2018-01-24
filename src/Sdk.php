@@ -1,11 +1,11 @@
 <?php
 
-namespace Dorcas;
+namespace Hostville\Dorcas;
 
 
-use Dorcas\Exception\ResourceNotFoundException;
-use Dorcas\Resources\ResourceInterface;
-use Dorcas\Services\ServiceInterface;
+use Hostville\Dorcas\Exception\ResourceNotFoundException;
+use Hostville\Dorcas\Resources\ResourceInterface;
+use Hostville\Dorcas\Services\ServiceInterface;
 use GuzzleHttp\Client;
 
 /**

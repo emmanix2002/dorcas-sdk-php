@@ -23,7 +23,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Dorcas\\": "src/"
+      "Hostville\\Dorcas\\": "src/"
     },
     "files": [
       "src/helpers.php"
