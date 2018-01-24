@@ -68,3 +68,41 @@ function load_manifest(): array
     # read the manifest.json file in
     return json_decode($contents, true) ?? [];
 }
+
+/**
+ * A small utility function to wrap the PHP parse_str function.
+ *
+ * @param string $queryString
+ *
+ * @return array
+ */
+function parse_query_parameters(string $queryString): array
+{
+    $params = [];
+    parse_str($queryString, $params);
+    return $params;
+}
+
+/**
+ * Performs a login for using the provided details; if successful, it returns the "access_token", else it will
+ * return the actual response object.
+ *
+ * NOTE: The client_id, and client_secret must correspond to a Password Grant Client issued to you.
+ *
+ *
+ * @param \Dorcas\Sdk $sdk
+ * @param string      $username
+ * @param string      $password
+ *
+ * @return \Dorcas\DorcasResponse|string
+ * @throws \Dorcas\Exception\DorcasException
+ */
+function login_via_password(\Dorcas\Sdk $sdk, string $username, string $password)
+{
+    $service = $sdk->createPasswordLoginService();
+    $response = $service->addBodyParam('username', $username)
+                        ->addBodyParam('password', $password)
+                        ->send('post');
+    # sends a HTTP POST request with the parameters
+    return $response->isSuccessful() ? $response->getData()['access_token'] : $response;
+}

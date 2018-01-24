@@ -3,9 +3,25 @@
 namespace Dorcas;
 
 
+use Dorcas\Exception\ResourceNotFoundException;
 use Dorcas\Resources\ResourceInterface;
+use Dorcas\Services\ServiceInterface;
 use GuzzleHttp\Client;
 
+/**
+ * The main SDK class for accessing the resources, and services on the Dorcas API.
+ * It provides some methods that allow you to easily create, and use resources and services.
+ *
+ *
+ * @method Resources\Crm\ContactField        createContactFieldResource(string $id = null)
+ * @method Resources\Crm\Customer            createCustomerResource(string $id = null)
+ * @method Resources\Invoicing\Order         createOrderResource(string $id = null)
+ * @method Resources\Invoicing\Product       createProductResource(string $id = null)
+ * @method Services\Identity\PasswordLogin   createPasswordLoginService()
+ * @method Services\Identity\Registration    createRegistrationService()
+ *
+ * @todo add unit tests to project
+ */
 class Sdk
 {
     const VERSION = '0.0.1';
@@ -28,16 +44,21 @@ class Sdk
     private $httpClient;
 
     /**
-     * @var array
+     * @var Manifest
      */
     private $manifest;
 
+    /** @var string|null */
+    private $token;
+
     /**
      * Sdk constructor.
+     *
      * - environment: the usage environment, it can be either "staging", or "production".
      *   Any value that isn't "production" is assumed to be "staging".
-     * - credentials: an associative array of that contains the "id", and "secret" keys.
-     *   These represent the application client id and client secret generated for the request application.
+     * - credentials: an associative array of that contains the "id", "secret", and "token" keys.
+     *   These represent the application client id and client secret generated for the request application; while the
+     *   "token" key holds the value for the returned Bearer token from a successful authorization request.
      *
      * @param array $args Requires certain keys to be set for a proper configuration.
      */
@@ -50,7 +71,28 @@ class Sdk
         $this->args = $args;
         $this->urlRegistry = new UrlRegistry($args['environment']);
         $this->httpClient = http_client();
-        $this->manifest = load_manifest();
+        $this->manifest = new Manifest();
+        $this->token = data_get($args, 'credentials.token', null);
+    }
+
+    /**
+     * Returns the OAuth client id.
+     *
+     * @return string
+     */
+    public function getClientId(): string
+    {
+        return (string) data_get($this->args, 'credentials.id');
+    }
+
+    /**
+     * Returns the OAuth client secret.
+     *
+     * @return string
+     */
+    public function getClientSecret(): string
+    {
+        return (string) data_get($this->args, 'credentials.secret');
     }
 
     /**
@@ -61,6 +103,49 @@ class Sdk
     public function getHttpClient(): Client
     {
         return $this->httpClient;
+    }
+
+    /**
+     * Returns the loaded manifest.
+     *
+     * @return Manifest
+     */
+    public function getManifest(): Manifest
+    {
+        return $this->manifest;
+    }
+
+    /**
+     * Returns the instance.
+     *
+     * @return UrlRegistry
+     */
+    public function getUrlRegistry(): UrlRegistry
+    {
+        return $this->urlRegistry;
+    }
+
+    /**
+     * Returns the authorization token value.
+     *
+     * @return string
+     */
+    public function getAuthorizationToken(): string
+    {
+        return (string) $this->token;
+    }
+
+    /**
+     * Sets the authorization token.
+     *
+     * @param string $token
+     *
+     * @return Sdk
+     */
+    public function setAuthorizationToken(string $token): Sdk
+    {
+        $this->token = $token;
+        return $this;
     }
 
     /**
@@ -96,25 +181,54 @@ class Sdk
      */
     protected function createResourceClient(string $name, array $options = []): ResourceInterface
     {
-        $resource = 'Dorcas\\Resources\\'.$name;
-        return new $resource($this, $options);
+        $entry = $this->manifest->getResource($name);
+        # we check for the manifest entry
+        if (empty($entry)) {
+            throw new ResourceNotFoundException('Could not find the client for the requested resource '.$name);
+        }
+        $resource = $entry['namespace'] . '\\' . $name;
+        return new $resource($this, ...$options);
     }
 
-    protected function createServiceClient(string $name, array $options = [])
+    /**
+     * Creates a new service client with the provided options.
+     *
+     * @param string $name
+     * @param array  $options
+     *
+     * @return ServiceInterface
+     */
+    protected function createServiceClient(string $name, array $options = []): ServiceInterface
     {
-
+        $entry = $this->manifest->getService($name);
+        # we check for the manifest entry
+        if (empty($entry)) {
+            throw new ResourceNotFoundException('Could not find the client for the requested service '.$name);
+        }
+        $service = $entry['namespace'] . '\\' . $name;
+        return new $service($this, $options);
     }
 
+    /**
+     * Magic method.
+     *
+     * @param $name
+     * @param $arguments
+     *
+     * @return ResourceInterface|ServiceInterface
+     */
     public function __call($name, $arguments)
     {
         $isCreate = strpos($name, 'create') === 0;
         # check the action type
         if ($isCreate && strtolower(substr($name, -8)) === 'resource') {
             # we're attempting to create a resource client
-            return $this->createResourceClient($name, $arguments[0] ?? []);
+            $name = substr($name, 6, -8);
+            return $this->createResourceClient($name, $arguments);
         } elseif ($isCreate && strtolower(substr($name, -7)) === 'service') {
             # we're attempting to create a service client
-            return $this->createServiceClient($name, $arguments[0] ?? []);
+            $name = substr($name, 6, -7);
+            return $this->createServiceClient($name, $arguments);
         }
         throw new \BadMethodCallException('The method '.$name.' does not exist.');
     }

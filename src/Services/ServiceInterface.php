@@ -3,7 +3,9 @@
 namespace Dorcas\Services;
 
 
-interface ServiceInterface
+use Dorcas\RequestInterface;
+
+interface ServiceInterface extends RequestInterface
 {
 
 }

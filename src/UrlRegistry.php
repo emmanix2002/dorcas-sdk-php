@@ -23,26 +23,6 @@ class UrlRegistry
     private $environment = 'staging';
 
     /**
-     * Registry for all Resource, and Service paths.
-     *
-     * @var array
-     */
-    private $endpoints = [
-        'Resources' => [
-            'ContactFields' => '/contact-fields',
-            'Customers' => '/customers',
-            'Products' => '/products',
-            'Orders' => '/orders'
-        ],
-        'Services' => [
-            'Identity' => [
-                'login' => '/login',
-                'register' => '/register'
-            ]
-        ]
-    ];
-
-    /**
      * @var Uri
      */
     protected $uri;
@@ -74,6 +54,9 @@ class UrlRegistry
      */
     protected function getPathParams(array $params = []): string
     {
+        if (empty($params)) {
+            return '';
+        }
         $path = $params['path'] ?? [];
         if (is_string($path)) {
             return $path;
@@ -93,6 +76,9 @@ class UrlRegistry
      */
     protected function getQueryParams(array $params = []): string
     {
+        if (empty($params)) {
+            return '';
+        }
         $query = $params['query'] ?? [];
         if (is_string($query)) {
             return $query;
@@ -116,36 +102,9 @@ class UrlRegistry
         # get the query parameters
         $path .= !empty($pathParams) ? '/' . $pathParams : '';
         # append the rest of the path
+        if ($path[0] !== '/') {
+            $path = '/' . $path;
+        }
         return $this->uri->withPath($path)->withQuery($queryParams);
-    }
-
-    /**
-     * Returns the URL for accessing a resource.
-     *
-     * @param string $name
-     * @param array  $params contains additional data to be used in composing the path and/or query of the URL
-     *
-     * @return Uri
-     */
-    public function getResourceUrl(string $name, array $params = []): Uri
-    {
-        $path = data_get($this->endpoints, 'Resources.'.$name, '');
-        # we get the actual endpoint
-        return $this->getUrl($path, $params);
-    }
-
-    /**
-     * Returns the URL for accessing a service.
-     *
-     * @param string $name
-     * @param array  $params contains additional data to be used in composing the path and/or query of the URL
-     *
-     * @return Uri
-     */
-    public function getServiceUrl(string $name, array $params = []): Uri
-    {
-        $path = data_get($this->endpoints, 'Services.'.$name, '');
-        # we get the actual endpoint
-        return $this->getUrl($path, $params);
     }
 }
