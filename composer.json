@@ -1,5 +1,5 @@
 {
-  "name": "emmanix2002/dorcas-sdk-php",
+  "name": "hostville/dorcas-sdk-php",
   "homepage": "https://dorcas.com",
   "description": "Dorcas SDK for PHP - Allows you to use the Dorcas API services in your web apps",
   "keywords": ["dorcas","business","sdk","invoicing"],
