@@ -3,6 +3,7 @@
 namespace Hostville\Dorcas;
 
 
+use Hostville\Dorcas\Exception\DorcasException;
 use Hostville\Dorcas\Exception\ResourceNotFoundException;
 use Hostville\Dorcas\Resources\ResourceInterface;
 use Hostville\Dorcas\Services\ServiceInterface;
@@ -20,7 +21,6 @@ use GuzzleHttp\Client;
  * @method Services\Identity\PasswordLogin   createPasswordLoginService()
  * @method Services\Identity\Registration    createRegistrationService()
  *
- * @todo add unit tests to project
  */
 class Sdk
 {
@@ -154,19 +154,20 @@ class Sdk
      * @param array $args
      *
      * @return bool
+     * @throws DorcasException
      */
     private function checkCredentials(array $args = []): bool
     {
         if (empty($args['credentials'])) {
-            throw new \RuntimeException('You did not provide the Dorcas client credentials in the configuration.');
+            throw new DorcasException('You did not provide the Dorcas client credentials in the configuration.', $args);
         }
         $id = data_get($args, 'credentials.id', null);
         $secret = data_get($args, 'credentials.secret', null);
         if (empty($id)) {
-            throw new \RuntimeException('The client "id" key is absent in the credentials configuration.');
+            throw new DorcasException('The client "id" key is absent in the credentials configuration.', $args);
         }
         if (empty($secret)) {
-            throw new \RuntimeException('The client "secret" key is absent in the credentials configuration.');
+            throw new DorcasException('The client "secret" key is absent in the credentials configuration.', $args);
         }
         return true;
     }
@@ -217,7 +218,7 @@ class Sdk
      *
      * @return ResourceInterface|ServiceInterface
      */
-    public function __call($name, $arguments)
+    public function __call($name, $arguments = null)
     {
         $isCreate = strpos($name, 'create') === 0;
         # check the action type

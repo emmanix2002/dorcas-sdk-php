@@ -3,6 +3,7 @@
 namespace Hostville\Dorcas\Resources;
 
 
+use Hostville\Dorcas\DorcasResponse;
 use Hostville\Dorcas\RequestInterface;
 use Hostville\Dorcas\Sdk;
 use Hostville\Dorcas\SendsHttpRequestTrait;
@@ -239,9 +240,9 @@ abstract class AbstractResource implements ResourceInterface
      * @param string $method
      * @param array  $path
      *
-     * @return \Dorcas\DorcasResponse
+     * @return \Hostville\Dorcas\DorcasResponse
      */
-    public function send(string $method, array $path = [])
+    public function send(string $method, array $path = []): DorcasResponse
     {
         return $this->httpSend($method, $this->sdk->getHttpClient(), $path);
     }

@@ -102,7 +102,7 @@ class UrlRegistry
         # get the query parameters
         $path .= !empty($pathParams) ? '/' . $pathParams : '';
         # append the rest of the path
-        if ($path[0] !== '/') {
+        if (!empty($path) && $path[0] !== '/') {
             $path = '/' . $path;
         }
         return $this->uri->withPath($path)->withQuery($queryParams);
