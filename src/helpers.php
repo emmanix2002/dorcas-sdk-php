@@ -106,3 +106,31 @@ function login_via_password(Hostville\Dorcas\Sdk $sdk, string $username, string 
     # sends a HTTP POST request with the parameters
     return $response->isSuccessful() ? $response->getData()['access_token'] : $response;
 }
+
+/**
+ * Creates a new Dorcas account with the provided details in the config array.
+ *
+ * @param \Hostville\Dorcas\Sdk $sdk
+ * @param array                 $config array containing the following keys:
+ *      - email: the account email address
+ *      - password: the desired plaintext account password
+ *      - firstname: account holder's firstname
+ *      - lastname: account holder's lastname
+ *      - phone: account holder's contact phone number
+ *      - company: account holder's company name
+ *
+ * @return \Hostville\Dorcas\DorcasResponse
+ */
+function create_account(\Hostville\Dorcas\Sdk $sdk, array $config): \Hostville\Dorcas\DorcasResponse
+{
+    $service = $sdk->createRegistrationService();
+    $keys = ['email', 'firstname', 'lastname', 'password', 'phone', 'company'];
+    # the config keys we need
+    foreach ($keys as $key) {
+        if (!array_key_exists($key, $config)) {
+            continue;
+        }
+        $service = $service->addBodyParam($key, $config[$key]);
+    }
+    return $service->send('post');
+}

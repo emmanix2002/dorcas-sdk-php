@@ -130,7 +130,7 @@ abstract class AbstractService implements ServiceInterface
      * @param string $method
      * @param array  $path
      *
-     * @return \Dorcas\DorcasResponse
+     * @return \Hostville\Dorcas\DorcasResponse
      */
     public function send(string $method, array $path = [])
     {
