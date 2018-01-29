@@ -17,7 +17,22 @@ function is_installed_via_composer(): bool
 }
 
 /**
- * Returns a path string relative to the application base directory.
+ * Returns a path string relative to the library's root installation directory.
+ *
+ * @param string|null $path
+ *
+ * @return string
+ */
+function root_path(string $path = null): string
+{
+    $level = is_installed_via_composer() ? 4 : 1;
+    # the level in the tree to reach the application root path
+    $appDir = dirname(__DIR__, $level);
+    return implode(DIRECTORY_SEPARATOR, [$appDir, (string) $path]);
+}
+
+/**
+ * Returns a path string relative to the library's base directory.
  *
  * @param string|null $path
  *
@@ -25,9 +40,7 @@ function is_installed_via_composer(): bool
  */
 function app_path(string $path = null): string
 {
-    $level = is_installed_via_composer() ? 4 : 1;
-    # the level in the tree to reach the application root path
-    $appDir = dirname(__DIR__, $level);
+    $appDir = dirname(__DIR__, 1);
     return implode(DIRECTORY_SEPARATOR, [$appDir, (string) $path]);
 }
 
