@@ -18,6 +18,7 @@ use GuzzleHttp\Client;
  * @method Resources\Crm\Customer            createCustomerResource(string $id = null)
  * @method Resources\Invoicing\Order         createOrderResource(string $id = null)
  * @method Resources\Invoicing\Product       createProductResource(string $id = null)
+ * @method Resources\Users\User              createUserResource(string $id = null)
  * @method Services\Identity\PasswordLogin   createPasswordLoginService()
  * @method Services\Identity\Registration    createRegistrationService()
  *

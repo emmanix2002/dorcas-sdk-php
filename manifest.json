@@ -55,6 +55,13 @@
       "path": "products",
       "includes": ["company", "orders", "prices"],
       "headers": ["Authorization"]
+    },
+    "User": {
+      "client": "User",
+      "namespace": "Hostville\\Dorcas\\Resources\\Users",
+      "path": "users",
+      "includes": ["company"],
+      "headers": ["Authorization"]
     }
   },
   "services": {
