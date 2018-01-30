@@ -74,6 +74,15 @@
         "optional": []
       }
     },
+    "Profile": {
+      "client": "Profile",
+      "namespace": "Hostville\\Dorcas\\Services\\Identity",
+      "path": "me",
+      "parameters": {
+        "required": [],
+        "optional": []
+      }
+    },
     "Registration": {
       "client": "Registration",
       "namespace": "Hostville\\Dorcas\\Services\\Identity",
