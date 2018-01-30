@@ -14,13 +14,13 @@ use GuzzleHttp\Client;
  * It provides some methods that allow you to easily create, and use resources and services.
  *
  *
- * @method Resources\Crm\ContactField        createContactFieldResource(string $id = null)
- * @method Resources\Crm\Customer            createCustomerResource(string $id = null)
- * @method Resources\Invoicing\Order         createOrderResource(string $id = null)
- * @method Resources\Invoicing\Product       createProductResource(string $id = null)
- * @method Resources\Users\User              createUserResource(string $id = null)
- * @method Services\Identity\PasswordLogin   createPasswordLoginService()
- * @method Services\Identity\Registration    createRegistrationService()
+ * @method \Hostville\Dorcas\Resources\Crm\ContactField        createContactFieldResource(string $id = null)
+ * @method \Hostville\Dorcas\Resources\Crm\Customer            createCustomerResource(string $id = null)
+ * @method \Hostville\Dorcas\Resources\Invoicing\Order         createOrderResource(string $id = null)
+ * @method \Hostville\Dorcas\Resources\Invoicing\Product       createProductResource(string $id = null)
+ * @method \Hostville\Dorcas\Resources\Users\User              createUserResource(string $id = null)
+ * @method \Hostville\Dorcas\Services\Identity\PasswordLogin   createPasswordLoginService()
+ * @method \Hostville\Dorcas\Services\Identity\Registration    createRegistrationService()
  *
  */
 class Sdk
