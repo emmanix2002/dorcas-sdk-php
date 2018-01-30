@@ -43,6 +43,14 @@ abstract class AbstractService implements ServiceInterface
     /**
      * @inheritdoc
      */
+    public function getAuthorizationHeader(): string
+    {
+        return 'Bearer ' . $this->sdk->getAuthorizationToken();
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function getRequestUrl(array $extras = []): Uri
     {
         $path = $this->sdk->getManifest()->getService(static::getName(), 'path');
