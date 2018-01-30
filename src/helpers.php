@@ -97,7 +97,8 @@ function parse_query_parameters(string $queryString): array
 }
 
 /**
- * Performs a login for using the provided details; if successful, it returns the "access_token", else it will
+ * Performs a login for using the provided details; if successful, it returns the "access_token"
+ * (or DorcasResponse - depending on the value of the $returnToken parameter), else it will
  * return the actual response object.
  *
  * NOTE: The client_id, and client_secret must correspond to a Password Grant Client issued to you.
@@ -106,18 +107,19 @@ function parse_query_parameters(string $queryString): array
  * @param Hostville\Dorcas\Sdk $sdk
  * @param string      $username
  * @param string      $password
+ * @param bool        $returnToken
  *
  * @return Hostville\Dorcas\DorcasResponse|string
  * @throws Hostville\Dorcas\Exception\DorcasException
  */
-function login_via_password(Hostville\Dorcas\Sdk $sdk, string $username, string $password)
+function login_via_password(Hostville\Dorcas\Sdk $sdk, string $username, string $password, bool $returnToken = true)
 {
     $service = $sdk->createPasswordLoginService();
     $response = $service->addBodyParam('username', $username)
                         ->addBodyParam('password', $password)
                         ->send('post');
     # sends a HTTP POST request with the parameters
-    return $response->isSuccessful() ? $response->getData()['access_token'] : $response;
+    return $response->isSuccessful() && $returnToken ? $response->getData()['access_token'] : $response;
 }
 
 /**
