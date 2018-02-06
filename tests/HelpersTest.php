@@ -16,7 +16,7 @@ class HelpersTest extends TestCase
     public function testAppPath()
     {
         $root = dirname(__DIR__);
-        $this->assertContains($root, app_path());
+        $this->assertContains($root, dorcas_sdk_app_path());
     }
 
     public function testHttpClient()

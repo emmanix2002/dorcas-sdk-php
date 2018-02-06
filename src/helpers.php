@@ -23,7 +23,7 @@ function is_installed_via_composer(): bool
  *
  * @return string
  */
-function root_path(string $path = null): string
+function dorcas_sdk_root_path(string $path = null): string
 {
     $level = is_installed_via_composer() ? 4 : 1;
     # the level in the tree to reach the application root path
@@ -38,7 +38,7 @@ function root_path(string $path = null): string
  *
  * @return string
  */
-function app_path(string $path = null): string
+function dorcas_sdk_app_path(string $path = null): string
 {
     $appDir = dirname(__DIR__, 1);
     return implode(DIRECTORY_SEPARATOR, [$appDir, (string) $path]);
@@ -77,7 +77,7 @@ function http_client(\GuzzleHttp\Psr7\Uri $uri = null): \GuzzleHttp\Client
  */
 function load_manifest(): array
 {
-    $contents = file_get_contents(app_path('manifest.json'));
+    $contents = file_get_contents(dorcas_sdk_app_path('manifest.json'));
     # read the manifest.json file in
     return json_decode($contents, true) ?? [];
 }
