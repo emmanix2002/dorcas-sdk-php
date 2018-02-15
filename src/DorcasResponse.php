@@ -19,6 +19,9 @@ class DorcasResponse
     /** @var RequestInterface  */
     private $request;
 
+    /** @var bool  */
+    public $asObjects = false;
+
     /**
      * DorcasResponse constructor.
      *
@@ -42,7 +45,8 @@ class DorcasResponse
      */
     public function __get($name)
     {
-        return array_key_exists($name, $this->data) ? $this->data[$name] : null;
+        $value = array_key_exists($name, $this->data) ? $this->data[$name] : null;
+        return is_array($value) && $this->asObjects ? (object) $value : $value;
     }
 
     /**
@@ -115,6 +119,16 @@ class DorcasResponse
     public function getData()
     {
         return $this->data['data'] ?? $this->data;
+    }
+
+    /**
+     * Returns the errors in the response, if any.
+     *
+     * @return array
+     */
+    public function getErrors(): array
+    {
+        return $this->data['errors'] ?? [];
     }
 
     /**

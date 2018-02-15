@@ -42,6 +42,13 @@
       "includes": ["company", "department", "location", "teams"],
       "headers": ["Authorization"]
     },
+    "Group": {
+      "client": "Group",
+      "namespace": "Hostville\\Dorcas\\Resources\\Crm",
+      "path": "groups",
+      "includes": ["company", "customers"],
+      "headers": ["Authorization"]
+    },
     "Order": {
       "client": "Order",
       "namespace": "Hostville\\Dorcas\\Resources\\Invoicing",
