@@ -7,15 +7,11 @@ use GuzzleHttp\Psr7\Uri;
 
 class UrlRegistry
 {
-    /**
-     * @var string
-     */
-    const STAGING_URL = 'http://api.dorcas.local';
-
-    /**
-     * @var string
-     */
-    const PRODUCTION_URL = 'https://api.dorcas.com';
+    const ENVIRONMENTS = [
+        'production' => 'https://api.dorcas.ng',
+        'staging' => 'http://api.dorcas.local',
+        'local' => 'http://api.dorcas.local'
+    ];
 
     /**
      * @var string
@@ -27,11 +23,17 @@ class UrlRegistry
      */
     protected $uri;
 
-
+    /**
+     * UrlRegistry constructor.
+     *
+     * @param string $env
+     */
     public function __construct(string $env = 'staging')
     {
-        $this->environment = strtolower($env) !== 'production' ? 'staging' : 'production';
-        $base = $this->isProduction() ? self::PRODUCTION_URL : self::STAGING_URL;
+        $envs = array_keys(self::ENVIRONMENTS);
+        # get the available environment
+        $this->environment = !in_array(strtolower($env), $envs) ? 'staging' : strtolower($env);
+        $base = self::ENVIRONMENTS[$this->environment];
         $this->uri = new Uri($base);
     }
 

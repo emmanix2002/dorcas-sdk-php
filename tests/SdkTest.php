@@ -54,7 +54,7 @@ class SdkTest extends TestCase
     public function testGetUrlRegistry()
     {
         $this->assertInstanceOf(UrlRegistry::class, $this->sdk->getUrlRegistry());
-        $this->assertEquals(UrlRegistry::STAGING_URL, (string) $this->sdk->getUrlRegistry()->getUrl());
+        $this->assertEquals(UrlRegistry::ENVIRONMENTS['staging'], (string) $this->sdk->getUrlRegistry()->getUrl());
     }
 
     public function testGetAuthorizationToken()
@@ -81,6 +81,7 @@ class SdkTest extends TestCase
     public function resourceProvider()
     {
         return [
+            ['Company', \Hostville\Dorcas\Resources\Company::class],
             ['ContactField', \Hostville\Dorcas\Resources\Crm\ContactField::class],
             ['Customer', \Hostville\Dorcas\Resources\Crm\Customer::class],
             ['Order', \Hostville\Dorcas\Resources\Invoicing\Order::class],
@@ -102,7 +103,9 @@ class SdkTest extends TestCase
     public function serviceProvider()
     {
         return [
+            ['Company', \Hostville\Dorcas\Services\Identity\Company::class],
             ['PasswordLogin', \Hostville\Dorcas\Services\Identity\PasswordLogin::class],
+            ['Profile', \Hostville\Dorcas\Services\Identity\Profile::class],
             ['Registration', \Hostville\Dorcas\Services\Identity\Registration::class]
         ];
     }

@@ -72,6 +72,15 @@
     }
   },
   "services": {
+    "Company": {
+      "client": "Company",
+      "namespace": "Hostville\\Dorcas\\Services\\Identity",
+      "path": "company",
+      "parameters": {
+        "required": [],
+        "optional": []
+      }
+    },
     "PasswordLogin": {
       "client": "PasswordLogin",
       "namespace": "Hostville\\Dorcas\\Services\\Identity",

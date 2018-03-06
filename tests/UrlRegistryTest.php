@@ -12,13 +12,13 @@ class UrlRegistryTest extends TestCase
     public function testProductionUrlIsCorrect()
     {
         $registry = new UrlRegistry('production');
-        $this->assertEquals(UrlRegistry::PRODUCTION_URL, (string) $registry->getUrl());
+        $this->assertEquals(UrlRegistry::ENVIRONMENTS['production'], (string) $registry->getUrl());
     }
 
     public function testStagingUrlIsCorrect()
     {
         $registry = new UrlRegistry('staging');
-        $this->assertEquals(UrlRegistry::STAGING_URL, (string) $registry->getUrl());
+        $this->assertEquals(UrlRegistry::ENVIRONMENTS['staging'], (string) $registry->getUrl());
     }
 
     public function testIsProduction()
@@ -31,7 +31,7 @@ class UrlRegistryTest extends TestCase
     {
         $registry = new UrlRegistry('staging');
         $path = [1, 'contacts'];
-        $expected = UrlRegistry::STAGING_URL . '/customers/' . implode('/', $path);
+        $expected = UrlRegistry::ENVIRONMENTS['staging'] . '/customers/' . implode('/', $path);
         $this->assertEquals($expected, (string) $registry->getUrl('customers', ['path' => $path]));
     }
 
@@ -39,7 +39,7 @@ class UrlRegistryTest extends TestCase
     {
         $registry = new UrlRegistry('staging');
         $query = ['a' => 1, 'b' => 2];
-        $expected = UrlRegistry::STAGING_URL . '?' . http_build_query($query);
+        $expected = UrlRegistry::ENVIRONMENTS['staging'] . '?' . http_build_query($query);
         $this->assertEquals($expected, (string) $registry->getUrl(null, ['query' => $query]));
     }
 
@@ -48,7 +48,7 @@ class UrlRegistryTest extends TestCase
         $registry = new UrlRegistry('staging');
         $path = [1, 'contacts'];
         $query = ['a' => 1, 'b' => 2];
-        $expected = UrlRegistry::STAGING_URL . '/customers/' . implode('/', $path) . '?' . http_build_query($query);
+        $expected = UrlRegistry::ENVIRONMENTS['staging'] . '/customers/' . implode('/', $path) . '?' . http_build_query($query);
         $this->assertEquals($expected, (string) $registry->getUrl('customers', ['path' => $path, 'query' => $query]));
     }
 }
