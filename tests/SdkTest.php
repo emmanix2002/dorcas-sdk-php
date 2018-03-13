@@ -104,6 +104,7 @@ class SdkTest extends TestCase
     {
         return [
             ['Company', \Hostville\Dorcas\Services\Identity\Company::class],
+            ['Metrics', \Hostville\Dorcas\Services\Metrics::class],
             ['PasswordLogin', \Hostville\Dorcas\Services\Identity\PasswordLogin::class],
             ['Profile', \Hostville\Dorcas\Services\Identity\Profile::class],
             ['Registration', \Hostville\Dorcas\Services\Identity\Registration::class]

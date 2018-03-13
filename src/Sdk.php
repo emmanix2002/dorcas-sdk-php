@@ -22,6 +22,7 @@ use GuzzleHttp\Client;
  * @method \Hostville\Dorcas\Resources\Invoicing\Product       createProductResource(string $id = null)
  * @method \Hostville\Dorcas\Resources\Users\User              createUserResource(string $id = null)
  * @method \Hostville\Dorcas\Services\Identity\Company         createCompanyService()
+ * @method \Hostville\Dorcas\Services\Metrics                  createMetricsService()
  * @method \Hostville\Dorcas\Services\Identity\PasswordLogin   createPasswordLoginService()
  * @method \Hostville\Dorcas\Services\Identity\Profile         createProfileService()
  * @method \Hostville\Dorcas\Services\Identity\Registration    createRegistrationService()
