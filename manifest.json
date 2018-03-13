@@ -81,6 +81,15 @@
         "optional": []
       }
     },
+    "Metrics": {
+      "client": "Metrics",
+      "namespace": "Hostville\\Dorcas\\Services",
+      "path": "statistics",
+      "parameters": {
+        "required": ["metrics"],
+        "optional": ["from_date", "to_date"]
+      }
+    },
     "PasswordLogin": {
       "client": "PasswordLogin",
       "namespace": "Hostville\\Dorcas\\Services\\Identity",
