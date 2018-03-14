@@ -16,7 +16,7 @@
     },
     "Country": {
       "client": "Country",
-      "namespace": "Hostville\\Dorcas\\Resources",
+      "namespace": "Hostville\\Dorcas\\Resources\\Common",
       "path": "countries",
       "includes": ["states"],
       "headers": ["Authorization"]
@@ -61,6 +61,13 @@
       "namespace": "Hostville\\Dorcas\\Resources\\Invoicing",
       "path": "products",
       "includes": ["company", "orders", "prices"],
+      "headers": ["Authorization"]
+    },
+    "State": {
+      "client": "State",
+      "namespace": "Hostville\\Dorcas\\Resources\\Common",
+      "path": "states",
+      "includes": ["country"],
       "headers": ["Authorization"]
     },
     "User": {
