@@ -14,20 +14,23 @@ use GuzzleHttp\Client;
  * It provides some methods that allow you to easily create, and use resources and services.
  *
  *
- * @method \Hostville\Dorcas\Resources\Company                 createCompanyResource(string $id = null)
- * @method \Hostville\Dorcas\Resources\Common\Country          createCountryResource(string $id = null)
- * @method \Hostville\Dorcas\Resources\Common\State            createStateResource(string $id = null)
- * @method \Hostville\Dorcas\Resources\Crm\ContactField        createContactFieldResource(string $id = null)
- * @method \Hostville\Dorcas\Resources\Crm\Customer            createCustomerResource(string $id = null)
- * @method \Hostville\Dorcas\Resources\Crm\Group               createGroupResource(string $id = null)
- * @method \Hostville\Dorcas\Resources\Invoicing\Order         createOrderResource(string $id = null)
- * @method \Hostville\Dorcas\Resources\Invoicing\Product       createProductResource(string $id = null)
- * @method \Hostville\Dorcas\Resources\Users\User              createUserResource(string $id = null)
- * @method \Hostville\Dorcas\Services\Identity\Company         createCompanyService()
- * @method \Hostville\Dorcas\Services\Metrics                  createMetricsService()
- * @method \Hostville\Dorcas\Services\Identity\PasswordLogin   createPasswordLoginService()
- * @method \Hostville\Dorcas\Services\Identity\Profile         createProfileService()
- * @method \Hostville\Dorcas\Services\Identity\Registration    createRegistrationService()
+ * @method \Hostville\Dorcas\Resources\Company                      createCompanyResource(string $id = null)
+ * @method \Hostville\Dorcas\Resources\Common\Country               createCountryResource(string $id = null)
+ * @method \Hostville\Dorcas\Resources\Common\State                 createStateResource(string $id = null)
+ * @method \Hostville\Dorcas\Resources\Common\Company\Department    createDepartmentResource(string $id = null)
+ * @method \Hostville\Dorcas\Resources\Common\Company\Location      createLocationResource(string $id = null)
+ * @method \Hostville\Dorcas\Resources\Common\Company\Team          createTeamResource(string $id = null)
+ * @method \Hostville\Dorcas\Resources\Crm\ContactField             createContactFieldResource(string $id = null)
+ * @method \Hostville\Dorcas\Resources\Crm\Customer                 createCustomerResource(string $id = null)
+ * @method \Hostville\Dorcas\Resources\Crm\Group                    createGroupResource(string $id = null)
+ * @method \Hostville\Dorcas\Resources\Invoicing\Order              createOrderResource(string $id = null)
+ * @method \Hostville\Dorcas\Resources\Invoicing\Product            createProductResource(string $id = null)
+ * @method \Hostville\Dorcas\Resources\Users\User                   createUserResource(string $id = null)
+ * @method \Hostville\Dorcas\Services\Identity\Company              createCompanyService()
+ * @method \Hostville\Dorcas\Services\Metrics                       createMetricsService()
+ * @method \Hostville\Dorcas\Services\Identity\PasswordLogin        createPasswordLoginService()
+ * @method \Hostville\Dorcas\Services\Identity\Profile              createProfileService()
+ * @method \Hostville\Dorcas\Services\Identity\Registration         createRegistrationService()
  *
  */
 class Sdk

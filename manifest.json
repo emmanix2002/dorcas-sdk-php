@@ -30,8 +30,8 @@
     },
     "Department": {
       "client": "Department",
-      "namespace": "Hostville\\Dorcas\\Resources\\Crm",
-      "path": "customers",
+      "namespace": "Hostville\\Dorcas\\Resources\\Common\\Company",
+      "path": "company/departments",
       "includes": ["company", "employees"],
       "headers": ["Authorization"]
     },
@@ -47,6 +47,13 @@
       "namespace": "Hostville\\Dorcas\\Resources\\Crm",
       "path": "groups",
       "includes": ["company", "customers"],
+      "headers": ["Authorization"]
+    },
+    "Location": {
+      "client": "Location",
+      "namespace": "Hostville\\Dorcas\\Resources\\Common\\Company",
+      "path": "company/locations",
+      "includes": ["company", "employees", "state"],
       "headers": ["Authorization"]
     },
     "Order": {
@@ -68,6 +75,13 @@
       "namespace": "Hostville\\Dorcas\\Resources\\Common",
       "path": "states",
       "includes": ["country"],
+      "headers": ["Authorization"]
+    },
+    "Team": {
+      "client": "Team",
+      "namespace": "Hostville\\Dorcas\\Resources\\Common\\Company",
+      "path": "company/teams",
+      "includes": ["company", "employees"],
       "headers": ["Authorization"]
     },
     "User": {

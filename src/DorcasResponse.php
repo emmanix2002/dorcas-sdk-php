@@ -45,8 +45,7 @@ class DorcasResponse
      */
     public function __get($name)
     {
-        $value = array_key_exists($name, $this->data) ? $this->data[$name] : null;
-        return is_array($value) && $this->asObjects ? (object) $value : $value;
+        return array_key_exists($name, $this->data) ? $this->data[$name] : null;
     }
 
     /**
@@ -111,24 +110,31 @@ class DorcasResponse
     {
         return $this->data['message'] ?? '';
     }
+
     /**
      * Returns the value of the "data" key in the response if available, else it returns the parsed response.
      *
-     * @return array|string
+     * @param bool $asObject
+     *
+     * @return array|mixed|object
      */
-    public function getData()
+    public function getData(bool $asObject = false)
     {
-        return $this->data['data'] ?? $this->data;
+        $data = $this->data['data'] ?? $this->data;
+        return $asObject && $data !== null ? (object) $data : $data;
     }
 
     /**
      * Returns the errors in the response, if any.
      *
-     * @return array
+     * @param bool $asObject
+     *
+     * @return array|mixed|object
      */
-    public function getErrors(): array
+    public function getErrors(bool $asObject = false)
     {
-        return $this->data['errors'] ?? [];
+        $errors = $this->data['errors'] ?? [];
+        return $asObject ? (object) $errors : $errors;
     }
 
     /**

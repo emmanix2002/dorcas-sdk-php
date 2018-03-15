@@ -83,11 +83,14 @@ class SdkTest extends TestCase
         return [
             ['Company', \Hostville\Dorcas\Resources\Company::class],
             ['Country', \Hostville\Dorcas\Resources\Common\Country::class],
-            ['State', \Hostville\Dorcas\Resources\Common\State::class],
             ['ContactField', \Hostville\Dorcas\Resources\Crm\ContactField::class],
             ['Customer', \Hostville\Dorcas\Resources\Crm\Customer::class],
+            ['Department', \Hostville\Dorcas\Resources\Common\Company\Department::class],
+            ['Location', \Hostville\Dorcas\Resources\Common\Company\Location::class],
             ['Order', \Hostville\Dorcas\Resources\Invoicing\Order::class],
             ['Product', \Hostville\Dorcas\Resources\Invoicing\Product::class],
+            ['State', \Hostville\Dorcas\Resources\Common\State::class],
+            ['Team', \Hostville\Dorcas\Resources\Common\Company\Team::class],
             ['User', \Hostville\Dorcas\Resources\Users\User::class]
         ];
     }
