@@ -37,8 +37,8 @@
     },
     "Employee": {
       "client": "Employee",
-      "namespace": "Hostville\\Dorcas\\Resources\\Crm",
-      "path": "employees",
+      "namespace": "Hostville\\Dorcas\\Resources\\Common\\Company",
+      "path": "company/employees",
       "includes": ["company", "department", "location", "teams"],
       "headers": ["Authorization"]
     },
