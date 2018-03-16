@@ -75,6 +75,9 @@ class Sdk
      */
     public function __construct(array $args = [])
     {
+        if (empty($args['environment'])) {
+            $args['environment'] = 'staging';
+        }
         $this->checkCredentials($args);
         $this->args = $args;
         $this->urlRegistry = new UrlRegistry($args['environment']);
