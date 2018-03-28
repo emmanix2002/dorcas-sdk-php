@@ -19,6 +19,7 @@ use GuzzleHttp\Client;
  * @method \Hostville\Dorcas\Resources\Common\State                 createStateResource(string $id = null)
  * @method \Hostville\Dorcas\Resources\Common\Company\Department    createDepartmentResource(string $id = null)
  * @method \Hostville\Dorcas\Resources\Common\Company\Employee      createEmployeeResource(string $id = null)
+ * @method \Hostville\Dorcas\Resources\Common\Company\Integration   createIntegrationResource(string $id = null)
  * @method \Hostville\Dorcas\Resources\Common\Company\Location      createLocationResource(string $id = null)
  * @method \Hostville\Dorcas\Resources\Common\Company\Team          createTeamResource(string $id = null)
  * @method \Hostville\Dorcas\Resources\Crm\ContactField             createContactFieldResource(string $id = null)

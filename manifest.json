@@ -49,6 +49,13 @@
       "includes": ["company", "customers"],
       "headers": ["Authorization"]
     },
+    "Integration": {
+      "client": "Integration",
+      "namespace": "Hostville\\Dorcas\\Resources\\Common\\Company",
+      "path": "integrations",
+      "includes": ["company"],
+      "headers": ["Authorization"]
+    },
     "Location": {
       "client": "Location",
       "namespace": "Hostville\\Dorcas\\Resources\\Common\\Company",
