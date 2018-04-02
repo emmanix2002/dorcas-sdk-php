@@ -139,7 +139,7 @@ function login_via_password(Hostville\Dorcas\Sdk $sdk, string $username, string 
 function create_account(\Hostville\Dorcas\Sdk $sdk, array $config): \Hostville\Dorcas\DorcasResponse
 {
     $service = $sdk->createRegistrationService();
-    $keys = ['email', 'firstname', 'lastname', 'password', 'phone', 'company', 'plan'];
+    $keys = ['email', 'firstname', 'lastname', 'password', 'phone', 'company', 'plan', 'plan_type'];
     # the config keys we need
     foreach ($keys as $key) {
         if (!array_key_exists($key, $config)) {
