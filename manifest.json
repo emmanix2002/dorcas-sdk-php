@@ -70,6 +70,13 @@
       "includes": ["company", "customers", "products"],
       "headers": ["Authorization"]
     },
+    "Partner": {
+      "client": "Partner",
+      "namespace": "Hostville\\Dorcas\\Resources",
+      "path": "partners",
+      "includes": ["companies", "users"],
+      "headers": []
+    },
     "Product": {
       "client": "Product",
       "namespace": "Hostville\\Dorcas\\Resources\\Invoicing",
