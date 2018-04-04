@@ -18,6 +18,9 @@ trait SendsHttpRequestTrait
     /** @var array  */
     protected $body = [];
 
+    /** @var array  */
+    protected $multipart = [];
+
     /**
      * @inheritdoc
      */
@@ -105,6 +108,29 @@ trait SendsHttpRequestTrait
     }
 
     /**
+     * Adds some multipart data to the request body.
+     *
+     * @param string      $name
+     * @param string      $content
+     * @param string|null $filename
+     * @param bool        $overwrite
+     *
+     * @return $this
+     */
+    public function addMultipartParam(string $name, string $content, string $filename = null, bool $overwrite = false)
+    {
+        if (array_key_exists($name, $this->multipart) && !$overwrite) {
+            return $this;
+        }
+        $part = ['name' => $name, 'contents' => $content];
+        if (!empty($filename)) {
+            $part['filename'] = $filename;
+        }
+        $this->multipart[] = $part;
+        return $this;
+    }
+
+    /**
      * @return bool
      */
     public function validate(): bool
@@ -117,9 +143,10 @@ trait SendsHttpRequestTrait
      *
      * @param string $method
      * @param Client $httpClient
-     * @param array  $path          additional components for the path; e.g.: [$id, 'prices']
+     * @param array  $path additional components for the path; e.g.: [$id, 'prices']
      *
      * @return DorcasResponse
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function send(string $method, Client $httpClient, array $path = []): DorcasResponse
     {
@@ -144,7 +171,15 @@ trait SendsHttpRequestTrait
             }
             if (strtolower($method) !== 'get') {
                 # not a get request
-                if (static::isJsonRequest() && !empty($this->body)) {
+                if (!empty($this->multipart)) {
+                    # check if we have some multipart data first
+                    foreach ($this->body as $key => $value) {
+                        # add the requested body params to the multipart data
+                        $this->multipart[] = ['name' => $key, 'contents' => $value];
+                    }
+                    $options[RequestOptions::MULTIPART] = $this->multipart;
+
+                } elseif (static::isJsonRequest() && !empty($this->body)) {
                     # a JSON request
                     $options[RequestOptions::JSON] = $this->body;
 
