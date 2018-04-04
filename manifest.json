@@ -77,6 +77,13 @@
       "includes": ["companies", "users"],
       "headers": []
     },
+    "Plan": {
+      "client": "Plan",
+      "namespace": "Hostville\\Dorcas\\Resources",
+      "path": "plans",
+      "includes": ["companies"],
+      "headers": []
+    },
     "Product": {
       "client": "Product",
       "namespace": "Hostville\\Dorcas\\Resources\\Invoicing",
