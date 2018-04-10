@@ -110,14 +110,14 @@ trait SendsHttpRequestTrait
     /**
      * Adds some multipart data to the request body.
      *
-     * @param string      $name
-     * @param string      $content
-     * @param string|null $filename
-     * @param bool        $overwrite
+     * @param string            $name
+     * @param string|resource   $content the string content for the key; or resource gotten from fopen()
+     * @param string|null       $filename
+     * @param bool              $overwrite
      *
      * @return $this
      */
-    public function addMultipartParam(string $name, string $content, string $filename = null, bool $overwrite = false)
+    public function addMultipartParam(string $name, $content, string $filename = null, bool $overwrite = false)
     {
         if (array_key_exists($name, $this->multipart) && !$overwrite) {
             return $this;
