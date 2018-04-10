@@ -139,6 +139,7 @@ abstract class AbstractService implements ServiceInterface
      * @param array  $path
      *
      * @return \Hostville\Dorcas\DorcasResponse
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function send(string $method, array $path = [])
     {
