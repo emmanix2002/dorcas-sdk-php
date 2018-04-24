@@ -27,6 +27,7 @@ use GuzzleHttp\Client;
  * @method \Hostville\Dorcas\Resources\Crm\ContactField             createContactFieldResource(string $id = null)
  * @method \Hostville\Dorcas\Resources\Crm\Customer                 createCustomerResource(string $id = null)
  * @method \Hostville\Dorcas\Resources\Crm\Group                    createGroupResource(string $id = null)
+ * @method \Hostville\Dorcas\Resources\ECommerce\Domain             createDomainResource(string $id = null)
  * @method \Hostville\Dorcas\Resources\Invoicing\Order              createOrderResource(string $id = null)
  * @method \Hostville\Dorcas\Resources\Invoicing\Product            createProductResource(string $id = null)
  * @method \Hostville\Dorcas\Resources\Users\User                   createUserResource(string $id = null)

@@ -35,6 +35,13 @@
       "includes": ["company", "employees"],
       "headers": ["Authorization"]
     },
+    "Domain": {
+      "client": "Domain",
+      "namespace": "Hostville\\Dorcas\\Resources\\ECommerce",
+      "path": "domains",
+      "includes": ["issuances", "owner"],
+      "headers": ["Authorization"]
+    },
     "Employee": {
       "client": "Employee",
       "namespace": "Hostville\\Dorcas\\Resources\\Common\\Company",
