@@ -165,6 +165,15 @@
         "required": ["client_id", "client_secret", "email", "password", "firstname", "lastname", "phone", "company"],
         "optional": []
       }
+    },
+    "Store": {
+      "client": "Store",
+      "namespace": "Hostville\\Dorcas\\Services",
+      "path": "store",
+      "parameters": {
+        "required": [],
+        "optional": []
+      }
     }
   }
 }

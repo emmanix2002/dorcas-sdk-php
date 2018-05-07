@@ -36,6 +36,7 @@ use GuzzleHttp\Client;
  * @method \Hostville\Dorcas\Services\Identity\PasswordLogin        createPasswordLoginService()
  * @method \Hostville\Dorcas\Services\Identity\Profile              createProfileService()
  * @method \Hostville\Dorcas\Services\Identity\Registration         createRegistrationService()
+ * @method \Hostville\Dorcas\Services\Store                         createStoreService()
  *
  */
 class Sdk

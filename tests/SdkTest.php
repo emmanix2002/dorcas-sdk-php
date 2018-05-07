@@ -117,7 +117,8 @@ class SdkTest extends TestCase
             ['Metrics', \Hostville\Dorcas\Services\Metrics::class],
             ['PasswordLogin', \Hostville\Dorcas\Services\Identity\PasswordLogin::class],
             ['Profile', \Hostville\Dorcas\Services\Identity\Profile::class],
-            ['Registration', \Hostville\Dorcas\Services\Identity\Registration::class]
+            ['Registration', \Hostville\Dorcas\Services\Identity\Registration::class],
+            ['Store', \Hostville\Dorcas\Services\Store::class]
         ];
     }
 }
