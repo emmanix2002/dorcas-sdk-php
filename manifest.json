@@ -35,6 +35,13 @@
       "includes": ["company", "employees"],
       "headers": ["Authorization"]
     },
+    "Directory": {
+      "client": "Directory",
+      "namespace": "Hostville\\Dorcas\\Resources\\Common",
+      "path": "directory",
+      "includes": ["professional_credentials", "professional_experiences", "professional_services"],
+      "headers": ["Authorization"]
+    },
     "Domain": {
       "client": "Domain",
       "namespace": "Hostville\\Dorcas\\Resources\\ECommerce",

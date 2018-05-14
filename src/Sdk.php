@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection ALL */
 
 namespace Hostville\Dorcas;
 
@@ -20,6 +20,7 @@ use GuzzleHttp\Client;
  * @method \Hostville\Dorcas\Resources\Common\Country               createCountryResource(string $id = null)
  * @method \Hostville\Dorcas\Resources\Common\State                 createStateResource(string $id = null)
  * @method \Hostville\Dorcas\Resources\Common\Company\Department    createDepartmentResource(string $id = null)
+ * @method \Hostville\Dorcas\Resources\Common\Directory             createDirectoryResource(string $id = null)
  * @method \Hostville\Dorcas\Resources\Common\Company\Employee      createEmployeeResource(string $id = null)
  * @method \Hostville\Dorcas\Resources\Common\Company\Integration   createIntegrationResource(string $id = null)
  * @method \Hostville\Dorcas\Resources\Common\Company\Location      createLocationResource(string $id = null)

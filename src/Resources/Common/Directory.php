@@ -1,13 +1,13 @@
 <?php
 
-namespace Hostville\Dorcas\Resources\Users;
+namespace Hostville\Dorcas\Resources\Common;
 
 
 use Hostville\Dorcas\Resources\AbstractResource;
 
-class User extends AbstractResource
+class Directory extends AbstractResource
 {
-
+    
     /**
      * Returns the name of the resource.
      *
@@ -15,6 +15,6 @@ class User extends AbstractResource
      */
     function getName(): string
     {
-        return 'User';
+        return 'Directory';
     }
 }
