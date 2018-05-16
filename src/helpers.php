@@ -105,12 +105,13 @@ function parse_query_parameters(string $queryString): array
  *
  *
  * @param Hostville\Dorcas\Sdk $sdk
- * @param string      $username
- * @param string      $password
- * @param bool        $returnToken
+ * @param string               $username
+ * @param string               $password
+ * @param bool                 $returnToken
  *
  * @return Hostville\Dorcas\DorcasResponse|string
  * @throws Hostville\Dorcas\Exception\DorcasException
+ * @throws \GuzzleHttp\Exception\GuzzleException
  */
 function login_via_password(Hostville\Dorcas\Sdk $sdk, string $username, string $password, bool $returnToken = true)
 {
@@ -127,14 +128,15 @@ function login_via_password(Hostville\Dorcas\Sdk $sdk, string $username, string 
  *
  * @param \Hostville\Dorcas\Sdk $sdk
  * @param array                 $config array containing the following keys:
- *      - email: the account email address
- *      - password: the desired plaintext account password
- *      - firstname: account holder's firstname
- *      - lastname: account holder's lastname
- *      - phone: account holder's contact phone number
- *      - company: account holder's company name
+ *                                      - email: the account email address
+ *                                      - password: the desired plaintext account password
+ *                                      - firstname: account holder's firstname
+ *                                      - lastname: account holder's lastname
+ *                                      - phone: account holder's contact phone number
+ *                                      - company: account holder's company name
  *
  * @return \Hostville\Dorcas\DorcasResponse
+ * @throws \GuzzleHttp\Exception\GuzzleException
  */
 function create_account(\Hostville\Dorcas\Sdk $sdk, array $config): \Hostville\Dorcas\DorcasResponse
 {
