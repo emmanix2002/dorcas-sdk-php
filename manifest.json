@@ -56,6 +56,13 @@
       "includes": ["company", "department", "location", "teams"],
       "headers": ["Authorization"]
     },
+    "Finance": {
+      "client": "Finance",
+      "namespace": "Hostville\\Dorcas\\Resources\\Finance",
+      "path": "finance",
+      "includes": ["company", "sub_accounts", "entries", "parent_account", "account"],
+      "headers": ["Authorization"]
+    },
     "Group": {
       "client": "Group",
       "namespace": "Hostville\\Dorcas\\Resources\\Crm",
