@@ -14,6 +14,6 @@ class Finance extends AbstractResource
      */
     function getName(): string
     {
-        return 'Resource';
+        return 'Finance';
     }
 }
