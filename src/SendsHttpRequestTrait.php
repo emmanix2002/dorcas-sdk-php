@@ -95,7 +95,15 @@ trait SendsHttpRequestTrait
      */
     public function addBodyParam(string $name, $value, bool $overwrite = false)
     {
-        if (array_key_exists($name, $this->body) && !$overwrite) {
+        $keyExists = array_key_exists($name, $this->body);
+        # check if the key already exists
+        if ($keyExists && !$overwrite) {
+            return $this;
+        }
+        if (is_null($value)) {
+            if ($keyExists) {
+                unset($this->body[$name]);
+            }
             return $this;
         }
         if (!is_array($value) && !is_scalar($value)) {
