@@ -112,6 +112,13 @@
       "includes": ["company", "orders", "prices"],
       "headers": ["Authorization"]
     },
+    "ProductCategory": {
+      "client": "ProductCategory",
+      "namespace": "Hostville\\Dorcas\\Resources\\Invoicing",
+      "path": "product-categories",
+      "includes": ["company", "products"],
+      "headers": ["Authorization"]
+    },
     "State": {
       "client": "State",
       "namespace": "Hostville\\Dorcas\\Resources\\Common",
