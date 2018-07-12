@@ -21,6 +21,13 @@
       "includes": ["states"],
       "headers": ["Authorization"]
     },
+    "Coupon": {
+      "client": "Coupon",
+      "namespace": "Hostville\\Dorcas\\Resources",
+      "path": "coupons",
+      "includes": ["plan", "user", "usages"],
+      "headers": ["Authorization"]
+    },
     "Customer": {
       "client": "Customer",
       "namespace": "Hostville\\Dorcas\\Resources\\Crm",
