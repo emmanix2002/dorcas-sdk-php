@@ -22,16 +22,5 @@ class OrderTest extends TestCase
     {
         $this->assertEquals('Order', $this->resource->getName());
     }
-
-    public function testInvalidRelationships()
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->resource->relationships("nonexistent");
-    }
-
-    public function testValidRelationships()
-    {
-        $r = $this->resource->relationships("company", "customers", "products");
-        $this->assertEquals($r, $this->resource);
-    }
+    
 }

@@ -14,6 +14,7 @@ use GuzzleHttp\Client;
  * It provides some methods that allow you to easily create, and use resources and services.
  *
  *
+ * @method \Hostville\Dorcas\Resources\ECommerce\Blog               createBlogResource(string $id = null)
  * @method \Hostville\Dorcas\Resources\Company                      createCompanyResource(string $id = null)
  * @method \Hostville\Dorcas\Resources\Coupon                       createCouponResource(string $id = null)
  * @method \Hostville\Dorcas\Resources\Partner                      createPartnerResource(string $id = null)

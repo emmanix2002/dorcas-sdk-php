@@ -97,11 +97,6 @@ abstract class AbstractResource implements ResourceInterface
                 $relation = $params;
                 $params = [];
             }
-            if (!in_array(strtolower($relation), $includes)) {
-                throw new \InvalidArgumentException(
-                    'The '.$relation.' relationship does not exist on the '.static::getName().' resource.'
-                );
-            }
             $this->relationships[strtolower($relation)] = $this->parseRelationshipParams($params);
         }
         return $this;

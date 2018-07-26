@@ -1,5 +1,12 @@
 {
   "resources": {
+    "Blog": {
+      "client": "Blog",
+      "namespace": "Hostville\\Dorcas\\Resources\\ECommerce",
+      "path": "blog",
+      "includes": [],
+      "headers": ["Authorization"]
+    },
     "Company": {
       "client": "Company",
       "namespace": "Hostville\\Dorcas\\Resources",

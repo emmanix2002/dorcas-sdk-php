@@ -22,16 +22,4 @@ class ContactFieldTest extends TestCase
     {
         $this->assertEquals('ContactField', $this->resource->getName());
     }
-
-    public function testInvalidRelationships()
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->resource->relationships("nonexistent");
-    }
-
-    public function testValidRelationships()
-    {
-        $r = $this->resource->relationships("customers");
-        $this->assertEquals($r, $this->resource);
-    }
 }

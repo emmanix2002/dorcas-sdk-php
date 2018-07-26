@@ -22,16 +22,4 @@ class CustomerTest extends TestCase
     {
         $this->assertEquals('Customer', $this->resource->getName());
     }
-
-    public function testInvalidRelationships()
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->resource->relationships("nonexistent");
-    }
-
-    public function testValidRelationships()
-    {
-        $r = $this->resource->relationships("company", "contacts", "orders");
-        $this->assertEquals($r, $this->resource);
-    }
 }
