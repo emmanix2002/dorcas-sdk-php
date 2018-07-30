@@ -118,6 +118,7 @@ class SdkTest extends TestCase
     public function serviceProvider()
     {
         return [
+            ['Authorization', \Hostville\Dorcas\Services\Identity\Authorization::class],
             ['Company', \Hostville\Dorcas\Services\Identity\Company::class],
             ['Metrics', \Hostville\Dorcas\Services\Metrics::class],
             ['PasswordLogin', \Hostville\Dorcas\Services\Identity\PasswordLogin::class],

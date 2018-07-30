@@ -156,6 +156,15 @@
     }
   },
   "services": {
+    "Authorization": {
+      "client": "Authorization",
+      "namespace": "Hostville\\Dorcas\\Services\\Identity",
+      "path": "auth",
+      "parameters": {
+        "required": ["client_id", "client_secret", "email"],
+        "optional": []
+      }
+    },
     "Company": {
       "client": "Company",
       "namespace": "Hostville\\Dorcas\\Services\\Identity",
