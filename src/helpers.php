@@ -102,16 +102,19 @@ function parse_query_parameters(string $queryString): array
  * return the actual response object.
  *
  * @param \Hostville\Dorcas\Sdk $sdk
- * @param string                $email
+ * @param array                 $credentials
  * @param bool                  $returnToken
  *
  * @return \Hostville\Dorcas\DorcasResponse
  * @throws \GuzzleHttp\Exception\GuzzleException
  */
-function authorize_via_email_only(Hostville\Dorcas\Sdk $sdk, string $email, bool $returnToken = true)
+function authorize_via_email_only(Hostville\Dorcas\Sdk $sdk, array $credentials, bool $returnToken = true)
 {
     $service = $sdk->createAuthorizationService();
-    $response = $service->addBodyParam('email', $email)->send('post', ['email']);
+    foreach ($credentials as $key => $value) {
+        $service = $service->addBodyParam($key, $value);
+    }
+    $response = $service->send('post', ['email']);
     # sends a HTTP POST request with the parameters
     return $response->isSuccessful() && $returnToken ? $response->getData()['access_token'] : $response;
 }
