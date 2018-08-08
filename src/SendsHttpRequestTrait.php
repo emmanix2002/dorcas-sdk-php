@@ -66,7 +66,7 @@ trait SendsHttpRequestTrait
      */
     protected function prefillHeader()
     {
-        if ($this->requiresAuthorization()) {
+        if ($this->requiresAuthorization() && !empty($this->getAuthorizationHeader())) {
             $this->headers['Authorization'] = $this->getAuthorizationHeader();
         }
         return $this;

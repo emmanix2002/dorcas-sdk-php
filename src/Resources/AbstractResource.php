@@ -55,6 +55,9 @@ abstract class AbstractResource implements ResourceInterface
      */
     public function getAuthorizationHeader(): string
     {
+        if (empty($this->sdk->getAuthorizationToken())) {
+            return '';
+        }
         return 'Bearer ' . $this->sdk->getAuthorizationToken();
     }
 
@@ -230,12 +233,13 @@ abstract class AbstractResource implements ResourceInterface
     {
         return true;
     }
-
+    
     /**
      * @param string $method
      * @param array  $path
      *
      * @return \Hostville\Dorcas\DorcasResponse
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function send(string $method, array $path = []): DorcasResponse
     {

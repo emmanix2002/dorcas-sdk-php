@@ -10,7 +10,7 @@ class Partner extends AbstractResource
      */
     public function requiresAuthorization(): bool
     {
-        return false;
+        return true;
     }
 
     /**
