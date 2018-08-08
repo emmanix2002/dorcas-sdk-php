@@ -26,7 +26,7 @@ class AbstractResourceTest extends TestCase
 
     public function testGetAuthorizationHeader()
     {
-        $this->assertContains('Bearer', $this->resource->getAuthorizationHeader());
+        $this->assertEquals('', $this->resource->getAuthorizationHeader());
     }
 
     public function testIsJsonRequest()
