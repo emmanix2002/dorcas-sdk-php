@@ -1,5 +1,12 @@
 {
   "resources": {
+    "Advert": {
+      "client": "Advert",
+      "namespace": "Hostville\\Dorcas\\Resources\\ECommerce",
+      "path": "adverts",
+      "includes": [],
+      "headers": ["Authorization"]
+    },
     "Blog": {
       "client": "Blog",
       "namespace": "Hostville\\Dorcas\\Resources\\ECommerce",

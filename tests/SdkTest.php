@@ -81,6 +81,7 @@ class SdkTest extends TestCase
     public function resourceProvider()
     {
         return [
+            ['Advert', \Hostville\Dorcas\Resources\ECommerce\Advert::class],
             ['Blog', \Hostville\Dorcas\Resources\ECommerce\Blog::class],
             ['Company', \Hostville\Dorcas\Resources\Company::class],
             ['Coupon', \Hostville\Dorcas\Resources\Coupon::class],
