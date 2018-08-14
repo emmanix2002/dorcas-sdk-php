@@ -10,8 +10,8 @@ class Invite extends AbstractResource
      */
     protected function prefillBody()
     {
-        $this->body['client_id'] = $this->sdk->getClientId();
-        $this->body['client_secret'] = $this->sdk->getClientSecret();
+        $this->addQueryArgument('client_id', $this->sdk->getClientId())
+                ->addQueryArgument('client_secret', $this->sdk->getClientSecret());
         return $this;
     }
     
