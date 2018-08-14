@@ -94,6 +94,7 @@ class SdkTest extends TestCase
             ['Employee', \Hostville\Dorcas\Resources\Common\Company\Employee::class],
             ['Finance', \Hostville\Dorcas\Resources\Finance\Finance::class],
             ['Integration', \Hostville\Dorcas\Resources\Common\Company\Integration::class],
+            ['Invite', \Hostville\Dorcas\Resources\Invite::class],
             ['Location', \Hostville\Dorcas\Resources\Common\Company\Location::class],
             ['Order', \Hostville\Dorcas\Resources\Invoicing\Order::class],
             ['Partner', \Hostville\Dorcas\Resources\Partner::class],
