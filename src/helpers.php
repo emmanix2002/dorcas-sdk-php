@@ -192,8 +192,8 @@ function get_validation_errors_from_response(DorcasResponse $response): array
         return [];
     }
     $messages = [];
-    foreach ($validationErrors['source'] as $field => $failures) {
-        $messages[$field] = $failures;
+    foreach ($validationErrors['source'] as $field => $failure) {
+        $messages[$field] = [$failure];
     }
     return $messages;
 }
