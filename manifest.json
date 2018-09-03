@@ -63,6 +63,20 @@
       "includes": ["professional_credentials", "professional_experiences", "professional_services"],
       "headers": ["Authorization"]
     },
+    "Developer": {
+      "client": "Developer",
+      "namespace": "Hostville\\Dorcas\\Resources\\Developers",
+      "path": "developers",
+      "includes": [],
+      "headers": ["Authorization"]
+    },
+    "DeveloperApplication": {
+      "client": "Application",
+      "namespace": "Hostville\\Dorcas\\Resources\\Developers",
+      "path": "developers/applications",
+      "includes": ["oauth_client", "user"],
+      "headers": ["Authorization"]
+    },
     "Domain": {
       "client": "Domain",
       "namespace": "Hostville\\Dorcas\\Resources\\ECommerce",

@@ -32,6 +32,8 @@ use GuzzleHttp\Client;
  * @method \Hostville\Dorcas\Resources\Crm\ContactField             createContactFieldResource(string $id = null)
  * @method \Hostville\Dorcas\Resources\Crm\Customer                 createCustomerResource(string $id = null)
  * @method \Hostville\Dorcas\Resources\Crm\Group                    createGroupResource(string $id = null)
+ * @method \Hostville\Dorcas\Resources\Developers\Developer         createDeveloperResource(string $id = null)
+ * @method \Hostville\Dorcas\Resources\Developers\Application       createDeveloperApplicationResource(string $id = null)
  * @method \Hostville\Dorcas\Resources\ECommerce\Domain             createDomainResource(string $id = null)
  * @method \Hostville\Dorcas\Resources\Finance\Finance              createFinanceResource(string $id = null)
  * @method \Hostville\Dorcas\Resources\Invoicing\Order              createOrderResource(string $id = null)
@@ -209,10 +211,11 @@ class Sdk
     {
         $entry = $this->manifest->getResource($name);
         # we check for the manifest entry
+        
         if (empty($entry)) {
             throw new ResourceNotFoundException('Could not find the client for the requested resource '.$name);
         }
-        $resource = $entry['namespace'] . '\\' . $name;
+        $resource = $entry['namespace'] . '\\' . $entry['client'];
         return new $resource($this, ...$options);
     }
 
@@ -231,7 +234,7 @@ class Sdk
         if (empty($entry)) {
             throw new ResourceNotFoundException('Could not find the client for the requested service '.$name);
         }
-        $service = $entry['namespace'] . '\\' . $name;
+        $service = $entry['namespace'] . '\\' . $entry['client'];
         return new $service($this, $options);
     }
 

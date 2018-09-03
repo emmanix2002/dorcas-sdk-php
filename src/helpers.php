@@ -1,5 +1,7 @@
 <?php
 
+use Hostville\Dorcas\DorcasResponse;
+
 /**
  * Checks if this library was installed via composer.
  *
@@ -105,7 +107,7 @@ function parse_query_parameters(string $queryString): array
  * @param array                 $credentials
  * @param bool                  $returnToken
  *
- * @return \Hostville\Dorcas\DorcasResponse
+ * @return DorcasResponse
  * @throws \GuzzleHttp\Exception\GuzzleException
  */
 function authorize_via_email_only(Hostville\Dorcas\Sdk $sdk, array $credentials, bool $returnToken = true)
@@ -158,14 +160,40 @@ function login_via_password(Hostville\Dorcas\Sdk $sdk, string $username, string 
  *                                      - phone: account holder's contact phone number
  *                                      - company: account holder's company name
  *
- * @return \Hostville\Dorcas\DorcasResponse
+ * @return DorcasResponse
  * @throws \GuzzleHttp\Exception\GuzzleException
  */
-function create_account(\Hostville\Dorcas\Sdk $sdk, array $config): \Hostville\Dorcas\DorcasResponse
+function create_account(\Hostville\Dorcas\Sdk $sdk, array $config): DorcasResponse
 {
     $service = $sdk->createRegistrationService();
     foreach ($config as $key => $value) {
         $service = $service->addBodyParam($key, $value);
     }
     return $service->send('post');
+}
+
+/**
+ * Returns the validation errors from the response, if any.
+ *
+ * @param DorcasResponse $response
+ *
+ * @return array
+ */
+function get_validation_errors_from_response(DorcasResponse $response): array
+{
+    if (empty($response->getErrors())) {
+        return [];
+    }
+    $errors = collect($response->getErrors());
+    # get the errors as a collection
+    $validationErrors = $errors->where('code', 'validation_failed')->first();
+    # get the validation errors entry
+    if (empty($validationErrors)) {
+        return [];
+    }
+    $messages = [];
+    foreach ($validationErrors['source'] as $field => $failures) {
+        $messages[$field] = $failures;
+    }
+    return $messages;
 }

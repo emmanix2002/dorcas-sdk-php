@@ -89,6 +89,8 @@ class SdkTest extends TestCase
             ['ContactField', \Hostville\Dorcas\Resources\Crm\ContactField::class],
             ['Customer', \Hostville\Dorcas\Resources\Crm\Customer::class],
             ['Department', \Hostville\Dorcas\Resources\Common\Company\Department::class],
+            ['Developer', \Hostville\Dorcas\Resources\Developers\Developer::class],
+            ['DeveloperApplication', \Hostville\Dorcas\Resources\Developers\Application::class],
             ['Directory', \Hostville\Dorcas\Resources\Common\Directory::class],
             ['Domain', \Hostville\Dorcas\Resources\ECommerce\Domain::class],
             ['Employee', \Hostville\Dorcas\Resources\Common\Company\Employee::class],
