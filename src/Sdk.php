@@ -34,6 +34,7 @@ use GuzzleHttp\Client;
  * @method \Hostville\Dorcas\Resources\Crm\Group                    createGroupResource(string $id = null)
  * @method \Hostville\Dorcas\Resources\Developers\Developer         createDeveloperResource(string $id = null)
  * @method \Hostville\Dorcas\Resources\Developers\Application       createDeveloperApplicationResource(string $id = null)
+ * @method \Hostville\Dorcas\Resources\Developers\AppStore          createAppStoreResource(string $id = null)
  * @method \Hostville\Dorcas\Resources\ECommerce\Domain             createDomainResource(string $id = null)
  * @method \Hostville\Dorcas\Resources\Finance\Finance              createFinanceResource(string $id = null)
  * @method \Hostville\Dorcas\Resources\Invoicing\Order              createOrderResource(string $id = null)
