@@ -82,6 +82,7 @@ class SdkTest extends TestCase
     {
         return [
             ['Advert', \Hostville\Dorcas\Resources\ECommerce\Advert::class],
+            ['AppStore', \Hostville\Dorcas\Resources\Developers\AppStore::class],
             ['Blog', \Hostville\Dorcas\Resources\ECommerce\Blog::class],
             ['Company', \Hostville\Dorcas\Resources\Company::class],
             ['Coupon', \Hostville\Dorcas\Resources\Coupon::class],
