@@ -106,10 +106,9 @@ trait SendsHttpRequestTrait
             }
             return $this;
         }
-        if (!is_array($value) && !is_scalar($value)) {
-            throw new \InvalidArgumentException(
-                'The value for a parameter should either be a scalar type (int, string, float), or an array.'
-            );
+        if (is_null($value)) {
+            unset($this->query[$name]);
+            return $this;
         }
         $this->body[$name] = $value;
         return $this;
