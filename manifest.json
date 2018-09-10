@@ -56,6 +56,13 @@
       "includes": ["company", "contacts", "orders"],
       "headers": ["Authorization"]
     },
+    "Deal": {
+      "client": "Deal",
+      "namespace": "Hostville\\Dorcas\\Resources\\Crm",
+      "path": "deals",
+      "includes": ["customer", "stages"],
+      "headers": ["Authorization"]
+    },
     "Department": {
       "client": "Department",
       "namespace": "Hostville\\Dorcas\\Resources\\Common\\Company",
