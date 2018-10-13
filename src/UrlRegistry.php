@@ -9,7 +9,7 @@ class UrlRegistry
 {
     const ENVIRONMENTS = [
         'production' => 'https://api.dorcas.ng',
-        'staging' => 'http://api.dorcas.local',
+        'staging' => 'https://staging-api.dorcas.ng',
         'local' => 'http://api.dorcas.local'
     ];
 
